@@ -1,0 +1,29 @@
+{
+  "name": "open-grupos-estudo-backend",
+  "version": "1.0.0",
+  "description": "Um projeto open source de grupos de estudo",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/harleymacedo/open-grupos-estudo-backend.git"
+  },
+  "keywords": [
+    "Open",
+    "source",
+    "grupo",
+    "de",
+    "estudo"
+  ],
+  "author": "Harley Macedo",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/harleymacedo/open-grupos-estudo-backend/issues"
+  },
+  "homepage": "https://github.com/harleymacedo/open-grupos-estudo-backend#readme",
+  "dependencies": {
+    "express": "^4.18.1"
+  }
+}
