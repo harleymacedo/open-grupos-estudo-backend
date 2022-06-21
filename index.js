@@ -1,11 +1,10 @@
 //Imports principais
 const express = require('express');
 const app = express();
+const assuntoRouter = require('./router/assuntoRouter');
 
-//Rotas principais
-app.get('/', (req, res) => {
-    res.json({'mensagem': 'Lista de grupos'});
-});
+//Rotas inseridas
+app.use(assuntoRouter);
 
 //Worker do projeto
 app.listen(process.env.PORT || 3000, () => {
