@@ -4,3 +4,4 @@
 const AssuntoSchema = {}
 
 //Exportar esquema
+module.exports = AssuntoSchema;
