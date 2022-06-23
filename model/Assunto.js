@@ -1,7 +1,13 @@
 //Importar mongoose
+const mongoose = require('mongoose');
 
 //Criar esquema
-const AssuntoSchema = {}
+const AssuntoSchema = mongoose.Schema({
+    nome: String,
+    professor: String,
+    periodo: Number,
+    meta: String,
+});
 
-//Exportar esquema
-module.exports = AssuntoSchema;
+//Exportar modelo
+module.exports = mongoose.model('Assunto', AssuntoSchema);
