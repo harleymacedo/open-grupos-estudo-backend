@@ -1,6 +1,7 @@
 //Imports principais
 const express = require('express');
 const app = express();
+const dotenv = require('dotenv').config();
 const mongoose = require('mongoose');
 const assuntoRouter = require('./router/assuntoRouter');
 
