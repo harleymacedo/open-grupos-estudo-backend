@@ -1,7 +1,7 @@
 const GrupoRouter = require('express').Router();
 
 GrupoRouter.get('/grupo', (req, res) => {
-    res.json([]);
+    res.json({grupos: []});
 });
 
 GrupoRouter.get('/grupo/:id', (req, res) => {
