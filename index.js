@@ -11,6 +11,11 @@ const AlunoRouter = require('./router/alunoRouter');
 //Conexão com DB
 mongoose.connect(process.env.DB_STR_CON);
 
+//Rota raiz
+app.get('/', (req, res) => {
+    res.json({mensagem: "Bem vindo ao sistema"});
+});
+
 //Rotas inseridas
 app.use(AssuntoRouter);
 app.use(GrupoRouter);
