@@ -9,7 +9,11 @@ const MaterialRouter = require('./router/materialRouter');
 const AlunoRouter = require('./router/alunoRouter');
 
 //Conexão com DB
-mongoose.connect(process.env.DB_STR_CON);
+try{
+    mongoose.connect(process.env.DB_STR_CON);
+} catch (error) {
+    console.log("Erro durante a conexão com MongoDB");
+}
 
 //Rota raiz
 app.get('/', (req, res) => {
