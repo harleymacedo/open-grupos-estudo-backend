@@ -15,10 +15,8 @@ try{
     console.log("Erro durante a conexão com MongoDB");
 }
 
-//Rota raiz
-app.get('/', (req, res) => {
-    res.json({mensagem: "Bem vindo ao sistema"});
-});
+//Midleware gerais
+app.use(express.json());
 
 //Rotas inseridas
 app.use(AssuntoRouter);
