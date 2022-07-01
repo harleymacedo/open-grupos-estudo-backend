@@ -3,7 +3,7 @@ const assuntoRouter = require('express').Router();
 
 //Obter todos os assuntos
 assuntoRouter.get('/assunto', async (req, res) => {
-    await res.json({'assuntos': []});
+    await res.json([]);
 });
 
 //Obter um assunto pelo ID
