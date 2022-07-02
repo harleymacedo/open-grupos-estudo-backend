@@ -10,8 +10,15 @@ GrupoRouter.get('/grupo', async (req, res) => {
     }
 });
 
-GrupoRouter.get('/grupo/:id', async (req, res) => {
-    await res.json({});
+GrupoRouter.get('/grupo/:email', async (req, res) => {
+    try {
+        const result = await Grupo.findOne({
+            email: req.body.email
+        });
+        res.json(result);
+    } catch (error) {
+        
+    }
 });
 
 GrupoRouter.post('/grupo', async (req, res) => {
