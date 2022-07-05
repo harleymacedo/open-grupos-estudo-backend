@@ -1,7 +1,13 @@
 const AlunoRouter = require('express').Router();
+const Aluno = require('../model/Aluno');
 
 AlunoRouter.get('/aluno', async (req, res) => {
-    await res.json([]);
+    try {
+        const result = await Aluno.find({});
+        res.json(result);
+    } catch (error) {
+        res.json({mensagem: 'Erro na busca de aluno'});
+    }
 });
 
 AlunoRouter.get('/aluno/:id', async (req, res) => {
