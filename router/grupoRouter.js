@@ -23,7 +23,6 @@ GrupoRouter.get('/grupo/:email', async (req, res) => {
 
 GrupoRouter.post('/grupo', async (req, res) => {
     try {
-        console.log(req.body);
         await Grupo.create({
             nome: req.body.nome,
             descricao: req.body.descricao,

@@ -33,7 +33,12 @@ AlunoRouter.post('/aluno', async (req, res) => {
 });
 
 AlunoRouter.put('/aluno', async (req, res) => {
-    await res.json({});
+    try {
+        await Aluno.updateOne({email: req.body.email}, req.body);
+        res.json({mensagem: 'Aluno atualizado'});
+    } catch (error) {
+        res.json({mensagem: 'Erro na atualiazação'});
+    }
 });
 
 AlunoRouter.delete('/aluno', async (req, res) => {
