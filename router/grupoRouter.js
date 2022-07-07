@@ -6,7 +6,7 @@ GrupoRouter.get('/grupo', async (req, res) => {
         const result = await Grupo.find({});
         res.json(result);
     } catch (error) {
-        res.json({mensagem: 'Erro na busca de grupos'});
+        res.json({mensagem: 'Erro na busca'});
     }
 });
 
@@ -17,7 +17,7 @@ GrupoRouter.get('/grupo/:email', async (req, res) => {
         });
         res.json(result);
     } catch (error) {
-        res.json({mensagem: 'Erro na busca do grupo'})
+        res.json({mensagem: 'Erro na busca'})
     }
 });
 
@@ -31,7 +31,7 @@ GrupoRouter.post('/grupo', async (req, res) => {
         });
         res.json({mensagem: 'Grupo cadastrado'});
     } catch (error) {
-        res.json({mensagem: 'Erro no cadastro do grupo'});
+        res.json({mensagem: 'Erro no cadastro'});
     }
 });
 
@@ -45,7 +45,7 @@ GrupoRouter.put('/grupo', async (req, res) => {
         });
         res.json({mensagem: 'Grupo atualizado'});
     } catch (error) {
-        res.json({mensagem: 'Erro na atualização do grupo'});
+        res.json({mensagem: 'Erro na atualização'});
     }
 });
 
@@ -54,7 +54,7 @@ GrupoRouter.delete('/grupo', async (req, res) => {
         await Grupo.deleteOne({nome: req.body.nome});
         res.json({mensagem: 'Grupo excluído'});
     } catch (error) {
-        res.json({mensagem: 'Erro na exclusão do grupo'});
+        res.json({mensagem: 'Erro na exclusão'});
     }
 });
 

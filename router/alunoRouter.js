@@ -6,7 +6,7 @@ AlunoRouter.get('/aluno', async (req, res) => {
         const result = await Aluno.find({});
         res.json(result);
     } catch (error) {
-        res.json({mensagem: 'Erro na busca de aluno'});
+        res.json({mensagem: 'Erro na busca'});
     }
 });
 
@@ -15,20 +15,16 @@ AlunoRouter.get('/aluno/:id', async (req, res) => {
         const result = await Aluno.findOne({email: req.body.email});
         res.json(result);
     } catch (error) {
-        res.json({mensagem: 'Erro na busca de aluno'});
+        res.json({mensagem: 'Erro na busca'});
     }
 });
 
 AlunoRouter.post('/aluno', async (req, res) => {
     try {
-        const result = await Aluno.create({
-            nome: req.body.nome,
-            email: req.body.email,
-            telefone: req.body.telefone
-        });
+        await Aluno.create(req.body);
         res.json({mensagem: 'Aluno cadastrado'});
     } catch (error) {
-        res.json({mensagem: 'Erro no cadastro do aluno'});
+        res.json({mensagem: 'Erro no cadastro'});
     }
 });
 
@@ -42,7 +38,12 @@ AlunoRouter.put('/aluno', async (req, res) => {
 });
 
 AlunoRouter.delete('/aluno', async (req, res) => {
-    await res.json({});
+    try {
+        await Aluno.deleteOne({email: req.body.email});
+        res.json({mensagem: 'Aluno excluído'}); 
+    } catch (error) {
+        res.json({mensagem: 'Erro na exclusão'});
+    }
 });
 
 module.exports = AlunoRouter;
