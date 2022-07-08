@@ -1,29 +1,49 @@
-//Obter o Router do Express
 const assuntoRouter = require('express').Router();
+const Assunto = require('../model/Assunto');
 
-//Obter todos os assuntos
 assuntoRouter.get('/assunto', async (req, res) => {
-    await res.json([]);
+    try {
+        const result = await Assunto.find({});
+        res.json(result);
+    } catch (error) {
+        res.json({mensagem: 'Erro na busca'});
+    }
 });
 
-//Obter um assunto pelo ID
 assuntoRouter.get('/assunto/:id', async (req, res) => {
-    await res.json({});
+    try {
+        const result = await Assunto.find({_id: req.params.id});
+        res.json(result);
+    } catch (error) {
+        res.json({mensagem: 'Erro na busca'});
+    }
 });
 
-//Inserir um novo assunto
 assuntoRouter.post('/assunto', async (req, res) => {
-    await res.json({});
+    try {
+        await Assunto.create(req.body);
+        res.json({mensagem: 'Assunto criado'});        
+    } catch (error) {
+        res.json({mensagem: 'Erro no cadastro'});
+    }
 });
 
-//Atualizar um assunto
 assuntoRouter.put('/assunto', async (req, res) => {
-    await res.json({});
+    try {
+        await Assunto.updateOne({_id: req.body.id}, req.body);
+        res.json({mensagem: 'Assunto atualizado'});
+    } catch (error) {
+        res.json({mensagem: 'Erro na atualização'});
+    }
 });
 
-//Excluir um assunto
 assuntoRouter.delete('/assunto', async (req, res) => {
-    await res.json({});
+    try {
+        await Assunto.deleteOne({_id: req.body.id});
+        res.json({mensagem: 'Assunto atualizado'});
+    } catch (error) {
+        res.json({mensagem: 'Erro na exclusão'});
+    }    
 });
 
 module.exports = assuntoRouter;

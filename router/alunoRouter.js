@@ -12,7 +12,7 @@ AlunoRouter.get('/aluno', async (req, res) => {
 
 AlunoRouter.get('/aluno/:id', async (req, res) => {
     try {
-        const result = await Aluno.findOne({email: req.body.email});
+        const result = await Aluno.findOne({email: req.params.email});
         res.json(result);
     } catch (error) {
         res.json({mensagem: 'Erro na busca'});

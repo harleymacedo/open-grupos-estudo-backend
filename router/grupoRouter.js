@@ -10,11 +10,9 @@ GrupoRouter.get('/grupo', async (req, res) => {
     }
 });
 
-GrupoRouter.get('/grupo/:email', async (req, res) => {
+GrupoRouter.get('/grupo/:nome', async (req, res) => {
     try {
-        const result = await Grupo.findOne({
-            nome: req.body.nome
-        });
+        const result = await Grupo.findOne({nome: req.params.nome});
         res.json(result);
     } catch (error) {
         res.json({mensagem: 'Erro na busca'})
@@ -23,12 +21,7 @@ GrupoRouter.get('/grupo/:email', async (req, res) => {
 
 GrupoRouter.post('/grupo', async (req, res) => {
     try {
-        await Grupo.create({
-            nome: req.body.nome,
-            descricao: req.body.descricao,
-            meta: req.body.meta,
-            imagem: req.body.imagem,
-        });
+        await Grupo.create(req.body);
         res.json({mensagem: 'Grupo cadastrado'});
     } catch (error) {
         res.json({mensagem: 'Erro no cadastro'});
@@ -37,12 +30,7 @@ GrupoRouter.post('/grupo', async (req, res) => {
 
 GrupoRouter.put('/grupo', async (req, res) => {
     try {
-        await Grupo.updateOne({nome: req.body.nome}, {
-            nome: req.body.nome,
-            descricao: req.body.descricao,
-            meta: req.body.meta,
-            imagem: req.body.imagem,
-        });
+        await Grupo.updateOne({nome: req.body.nome}, req.body);
         res.json({mensagem: 'Grupo atualizado'});
     } catch (error) {
         res.json({mensagem: 'Erro na atualização'});
