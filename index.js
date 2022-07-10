@@ -15,7 +15,7 @@ try{
     console.log("Erro durante a conexão com MongoDB");
 }
 
-//Midleware gerais
+//Middleware gerais
 app.use(express.json());
 
 //Rotas inseridas
