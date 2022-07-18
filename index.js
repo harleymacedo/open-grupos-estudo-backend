@@ -2,6 +2,7 @@
 const express = require('express');
 const app = express();
 const dotenv = require('dotenv').config();
+const cors = require('cors');
 const mongoose = require('mongoose');
 const AssuntoRouter = require('./router/assuntoRouter');
 const GrupoRouter = require('./router/grupoRouter');
@@ -17,6 +18,7 @@ try{
 
 //Middleware gerais
 app.use(express.json());
+app.use(cors());
 
 //Rotas inseridas
 app.use(AssuntoRouter);
