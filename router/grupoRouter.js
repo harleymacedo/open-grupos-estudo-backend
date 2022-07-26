@@ -39,7 +39,7 @@ GrupoRouter.put('/grupo', async (req, res) => {
 
 GrupoRouter.delete('/grupo', async (req, res) => {
     try {
-        await Grupo.deleteOne({nome: req.body._id});
+        await Grupo.deleteOne({_id: req.body._id});
         res.json({mensagem: 'Grupo excluído'});
     } catch (error) {
         res.json({mensagem: 'Erro na exclusão'});
